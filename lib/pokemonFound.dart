@@ -11,12 +11,22 @@ class PokemonFound extends StatelessWidget {
         child: Center(
           child: ElevatedButton(
             onPressed: () {
-              Navigator.of(context).pushReplacementNamed('/notfound');
+              Navigator.of(context).pop();
             },
             child: Text('포켓몬 찾기 성공!'),
           ),
         ),
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          _DNavigation(context);
+        },
+        child: Icon(Icons.book),
+      ),
     );
+  }
+
+  void _DNavigation(BuildContext context) async {
+    final result = await Navigator.of(context).pushNamed('/dictionary');
   }
 }

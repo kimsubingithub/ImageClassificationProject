@@ -4,23 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
 class PokemonFind extends StatefulWidget {
-  const PokemonFind({ Key? key }) : super(key: key);
+  const PokemonFind({Key? key}) : super(key: key);
 
   @override
   _PokemonFindState createState() => _PokemonFindState();
 }
 
 class _PokemonFindState extends State<PokemonFind> {
-  //final XFile f = await _picker.pickerImage
-  //XFile f = await ImagePicker().getImage(source: ImageSource.gallery);//갤러리에서 사진을 가져옵니다.
-  //File dummyFile = File(f.path);//가져온 사진의 Type을 File 형식으로 바꿔줍니다.
-  //PickedFile f = await ImagePicker().getImage(source: ImageSource.camera);//갤러리에서 사진을 가져옵니다.
-  //File dummyFile = File(f.path);//가져온 사진의 Type을 File 형식으로 바꿔줍니다.
-  
-  //final ImagePicker _picker = ImagePicker();
-  //PickedFile _image;
-  //_image == null ? Text("No image") : Image.file(File(_image.path));
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,37 +20,43 @@ class _PokemonFindState extends State<PokemonFind> {
       body: Container(
         child: Column(
           children: [
-            //Container(
-            //  width: 300,
-            //  height: 300,
-            //  decoration: BoxDecoration(
-            //    image: DecorationImage(
-            //      image: FileImage(f),
-            //      fit: BoxFit.cover
-            //    )
-            //  ),
-            //),
-            //FloatingActionButton(
-            //  onPressed: _getImage,
-            //  child: Icon(Icons.add_a_photo),
-            //),
+            Container(
+              width: 300,
+              height: 300,
+              child: ElevatedButton(
+                onPressed: () {},
+                child: Text('찾고 싶은 포켓몬 이미지 가져오기'),
+              ),
+            ),
             Center(
               child: ElevatedButton(
                 onPressed: () {
                   Navigator.of(context).pushNamed('/found');
                 },
-                child: Text('찾고 싶은 포켓몬은'),
+                child: Text('O'),
+              ),
+            ),
+            Center(
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.of(context).pushNamed('/notfound');
+                },
+                child: Text('X'),
               ),
             )
           ],
         ),
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          _DNavigation(context);
+        },
+        child: Icon(Icons.book),
+      ),
     );
   }
-//  Future _getImage() async {
-//    PickedFile image = await _picker.getImage(source: ImageSource.gallery);
-//    setState(() {
-//      _image = image;
-//    });
-//  }
+
+  void _DNavigation(BuildContext context) async {
+    final result = await Navigator.of(context).pushNamed('/dictionary');
+  }
 }

@@ -19,6 +19,16 @@ class PokemonNotFound extends StatelessWidget {
           ),
         ),
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          _DNavigation(context);
+        },
+        child: Icon(Icons.book),
+      ),
     );
+  }
+
+  void _DNavigation(BuildContext context) async {
+    final result = await Navigator.of(context).pushNamed('/dictionary');
   }
 }
