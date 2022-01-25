@@ -10,13 +10,11 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  static const String _title = 'Widget Example';
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: _title,
+      title: '이미지 분류 앱',
       initialRoute: '/',
       routes: {
         '/': (context) => PokemonFind(),
