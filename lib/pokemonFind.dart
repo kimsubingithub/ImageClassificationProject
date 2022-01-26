@@ -25,7 +25,7 @@ class _PokemonFindState extends State<PokemonFind> {
 
   loadModel() async {
     await Tflite.loadModel(
-            model: 'assets/gdsc_pokemon_CNN.tflite', labels: 'assets/lavel.txt')
+            model: 'assets/gdsc_pokemon_CNN.tflite', labels: 'assets/label.txt')
         .then((value) {
       setState(() {});
     });
